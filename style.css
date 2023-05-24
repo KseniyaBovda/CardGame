@@ -1,3 +1,7 @@
+@font-face {
+    font-family: "StratosSkyeng";
+    src: url(./fonts/stratosskyeng-regular.otf);
+}
 *{
     margin: 0;
     padding: 0;
@@ -12,6 +16,7 @@
 body {
     background-color: #004980;
     font-family:  StratosSkyeng;
+    height: 100vh;
 }
 
 .main-card {
@@ -23,7 +28,8 @@ body {
     height: 459px;
     background: #C2F5FF;
     border-radius: 12px;
-    margin: 158px 272px;
+    margin: auto;
+    margin-top: 158px;
 }
 
 .text {
@@ -39,8 +45,14 @@ body {
     gap: 24px;
 }
 
-.level-num{
-    font-family:  StratosSkyeng;
+.level input[type="radio"] {
+    display: none;
+}
+
+.level label {
+    display: inline-block;
+    padding: 2px 9px;
+    cursor: pointer;
     background-color: #FFFFFF;
     border-radius: 12px;
     width: 98px;
@@ -53,6 +65,15 @@ body {
     color: #0080C1;
     border-color: transparent;
 }
+
+.level input[type="radio"]:checked+label {
+    background-color: #7ecbef;
+}
+
+.level label:hover {
+    background-color: #b3dcfd;
+}
+
 
 .start-button {
     font-family:  StratosSkyeng;

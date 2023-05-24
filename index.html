@@ -6,23 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CardGame</title>
-    <style>
-       @font-face {
-        font-family: "StratosSkyeng";
-        src: url(./fonts/stratosskyeng-regular.otf);
-    }
-    </style>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body> 
     <div class="main-card" >
         <p class="text">Выбери сложность</p>
-        <div class="level">
-            <button class="level-num">1</button>
-            <button class="level-num">2</button>
-            <button class="level-num">3</button>
-        </div>
+            <div  class="level"> 
+                <input type="radio" id="radio1" name="radios" value="1" checked>
+                <label for="radio1">1</label>
+                
+                <input type="radio" id="radio2" name="radios" value="2">
+                <label for="radio2">2</label>
+                
+                <input type="radio" id="radio3" name="radios" value="3">
+                <label for="radio3">3</label>
+            </div> 
         <button class="start-button">Старт</button>
     </div>
 </body>
