@@ -1,10 +1,14 @@
+import { firstLevel } from "./components/first-level.js";
+import { secondLevel } from "./components/second-level.js";
+import { thirdLevel } from "./components/third-level.js";
 
-const renderLevels = () => {
+
+const renderApp = () => {
     const appEl = document.getElementById("app");   
     let appHtml = `<div class="main-card" >
                     <p class="text">Выбери сложность</p>
                     <div  class="level"> 
-                        <input type="radio" id="radio1" name="radios" value="1" checked>
+                        <input type="radio" id="radio1" name="radios" value="1">
                         <label for="radio1">1</label>
                         
                         <input type="radio" id="radio2" name="radios" value="2">
@@ -18,33 +22,26 @@ const renderLevels = () => {
 
     appEl.innerHTML = appHtml;
 
-    const levels = document.querySelectorAll('div > input');
-    const startButton = document.getElementById("start-button");
+    for(const level of document.querySelectorAll('input')) {
+        level.addEventListener('click', () => {
+           window.localStorage.setItem('level', `${level.value}`);
+        })
+    }
 
+    const startButton = document.getElementById("start-button");
     startButton.addEventListener('click', () => {
-        let selectedLevel;
-        for (const level of levels) {
-            if (level.checked) {
-                selectedLevel = level.value;
-                break;
-            }
+        const selectedLevel = parseInt(window.localStorage.getItem('level'));
+        if(selectedLevel === 1) {
+            firstLevel( {appEl} )
         }
-        if (selectedLevel === "1") {
-            appHtml = `<div class="main-card" >
-                            <p class="text">Легкий уровень</p>
-                        </div>`;
-        } else if (selectedLevel === "2") {
-            appHtml = `<div class="main-card" >
-                            <p class="text">Средний уровень</p>
-                        </div>`;
-        } else if (selectedLevel === "3") {
-            appHtml = `<div class="main-card" >
-                            <p class="text">Сложный уровень</p>
-                        </div>`;
-        } 
-        appEl.innerHTML = appHtml;
+        if(selectedLevel === 2) {
+            secondLevel( {appEl} )
+        }
+        if(selectedLevel === 3) {
+            thirdLevel( {appEl} )
+        }
     });    
 
-
-}    
-renderLevels();
+}
+ 
+renderApp();
